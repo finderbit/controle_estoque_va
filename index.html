@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title_page }}</title>
+    <link rel="stylesheet" href="../static/base.css">
+    <style>
+        div {
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: rgb(53, 132, 250);
+            border-radius: 16px;
+        }
+
+        div:hover {
+            width: 420px;
+            height: 220px;
+            cursor: pointer;
+        }
+
+        div>a {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {% for rota in routes %}
+        <div>
+            <a href="{{url_for(rota)}}">{{rota.title()}}</a>
+        </div>
+        {% endfor %}
+
+    </main>
+
+</body>
+
+</html>
