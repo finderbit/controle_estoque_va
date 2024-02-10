@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, url_for
-
+from os.path import join
+from main import readjson
 
 app = Flask(__name__)
 routes = "home", "financeiro", "estoque","cadastro"
-
+ROOT_MODEL = "models"
+NAME_FILE = "clientes.json"
+FILE = join(ROOT_MODEL,NAME_FILE)
+dados = readjson(FILE)
 
 @app.route("/", methods=["GET"])
 @app.route("/home", methods=["GET"])
@@ -24,7 +28,9 @@ def estoque():
 @app.route("/cadastro", methods=["GET","POST"])
 def cadastro():
     if request.method == "GET":
-        return render_template("cadastro.html",routes=routes,title_page="Cadastro"), 200
+        # return dados
+        return render_template("cadastro.html",
+                               routes=routes,title_page="Cadastro",dados=dados), 200
     if request.method == "POST":
         return ""
 
