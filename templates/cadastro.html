@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title_page }}</title>
+    <link rel="stylesheet" href="../static/base.css">
+</head>
+<style>
+    .area-form{
+        color: white;
+        padding: 8px;
+    }
+</style>
+
+<body>
+    <div style="display: block; margin: 0 auto; ">
+        <form method="post">
+            <div class="area-form">
+                <label for="inomecliente">Nome do cliente:</label>
+                <input type="text" name="nomeDoCliente" id="inomecliente">
+            </div>
+            <div class="area-form">
+                <label for="itelcliente">Telefone do cliente</label>
+                <input type="number" name="telCliente" id="itelcliente">
+            </div>
+            <div class="area-form">
+                <label for="icepcliente">Cep do Cliente:</label>
+                <input type="number" name="cepDoCliente" id="icepcliente">
+            </div>
+            <div class="area-form">
+                <input type="submit" value="Cadastrar">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

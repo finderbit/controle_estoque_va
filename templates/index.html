@@ -29,14 +29,13 @@
 </head>
 
 <body>
-    <main>
-        {% for rota in routes %}
-        <div>
-            <a href="{{url_for(rota)}}">{{rota.title()}}</a>
-        </div>
-        {% endfor %}
 
-    </main>
+    {% for rota in routes %}
+    <div>
+        <a href="{{url_for(rota)}}">{{rota.title()}}</a>
+    </div>
+    {% endfor %}
+
 
 </body>
 
