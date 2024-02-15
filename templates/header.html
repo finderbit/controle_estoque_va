@@ -1,12 +1,7 @@
-
 <header>
     <nav>
-        <ul>
-            {% for rota in routes %}
-            <li>
-                <a href="{{url_for(rota)}}">{{rota.upper()}}</a>
-            </li>
-            {% endfor %}
-        </ul>
+        {% for rota in routes %}
+        <a href="{{url_for(rota)}}">{{rota.upper()}}</a>
+        {% endfor %}
     </nav>
 </header>

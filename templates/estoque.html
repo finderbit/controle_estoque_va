@@ -6,13 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title_page }}</title>
     <link rel="stylesheet" href="../static/base.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <style>
+        table {
+            width: 100vw;
+        }
 
+        table,
+        th,
+        tr {
+            border: #000 1px solid;
+        }
+
+        .container-table {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- {% include "header.html" %} -->
-    <main></main>
+    {% include "header.html" %}
 
+    <div class="container-table">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>nome do produto</th>
+                <th>quantidade(und)</th>
+                <th>ano</th>
+                <th>valor(R$)</th>
+            </thead>
+        </table>
+    </div>
+
+    <div class="container-cadastro">
+        <form method="post">
+            <div>
+                <label for="inomeProduto">Nome do produto</label>
+                <input type="text" name="nome_do_produto" id="inomeProduto">
+            </div>
+            <div>
+                <label for="iqtdProduto">Quantidade</label>
+                <input type="number" name="quantidade_produto" id="iqtdProduto">
+            </div>
+            <div>
+                <label for="ianoDeFabricacao">Ano de fabricação</label>
+                <select name="ano_de_fabricacao" id="ianoDeFabricacao">
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2004</option>
+                </select>
+            </div>
+            <div>
+                <label for="ivalorProduto">Valor(R$)</label>
+                <input type="number" name="valor_produto" id="ivalorProduto" step=".01">
+            </div>
+            <div>
+                <input type="submit" value="Cadastrar">
+                <input type="reset" value="Limpar">
+            </div>
+        </form>
+    </div>
 
 </body>
 
