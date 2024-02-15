@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for
 from os.path import join
-from main import readjson
+from server.main import readjson
 
 app = Flask(__name__)
 routes = "home", "estoque", "cadastro", "financeiro",
