@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title_page}}</title>
+    {% include "bootstrap.html" %}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            width: 100vw;
+            height: 80px;
+            display: flex;
+            justify-content: flex-start;
+            padding: 26px;
+            align-items: center;
+
+        }
+
+        header>span {
+            margin-left: 90px;
+        }
+
+        header>.account {
+            position: absolute;
+            right: 0;
+            margin-right: 80px;
+        }
+
+        header>span:hover {
+            cursor: pointer;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #left {
+            width: 15vw;
+            height: 100vh;
+            position: fixed;
+            text-align: center;
+            left: 0;
+            background-color: rgba(255, 0, 0, 0.288);
+        }
+
+        #left li {
+            margin: 16px 0px;
+        }
+
+        #right {
+            width: 85vw;
+            height: 100vh;
+            position: absolute;
+            padding: 16px;
+            right: 0;
+            background-color: rgba(0, 0, 255, 0.24);
+            overflow-y: scroll;
+        }
+
+        #right>* {
+            padding: 16px;
+        }
+
+        .atalhos {
+            display: flex;
+            gap: 8px;
+        }
+
+        .acao {
+            position: relative;
+            right: 0;
+            margin-right: 16px;
+            width: 60px;
+
+        }
+        #container-graficos {
+            display: flex;
+            
+        }
+        .graficos{
+            margin: 0px 18px ;
+            background-color: white;
+            padding: 26px;
+            border-radius: 16px;
+            width: 50.5%;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>Nome da Empresa</span>
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+        <span class="material-symbols-outlined account">
+            person
+        </span>
+
+    </header>
+
+
+    <main>
+        <section id="left">
+            <ul class="nav flex-column">
+                {% for rota in routes %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for(rota)}}">{{ rota.title() }}</a>
+                </li>
+                {% endfor%}
+            </ul>
+
+        </section>
+        <section id="right">
+            <section>
+                <h1>Dashboard</h1>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success">Search</button>
+                </form>
+            </section>
+            <section class="atalhos">
+
+                <div class="card bg-primary w-75 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Favoritos</h5>
+                        <p class="card-text">Os produto mais vendidos </p>
+                        <a href="#" class="btn btn-success acao">></a>
+                    </div>
+                </div>
+                <div class="card bg-primary w-75 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Financeiro</h5>
+                        <p class="card-text">Os produto mais vendidos </p>
+                        <a href="#" class="btn bg-success acao"> > </a>
+                    </div>
+                </div>
+                <div class="card  bg-primary w-75 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Vendas</h5>
+                        <p class="card-text">Os produto mais vendidos </p>
+                        <a href="#" class="btn btn-success acao"> > </a>
+                    </div>
+                </div>
+            </section>
+            <section id="container-graficos">
+                <section class="graficos"> 
+                    <canvas id="my_chart"></canvas>
+                </section>
+                <section class="graficos"> 
+                    <canvas id="my_chart_2"></canvas>
+                </section>
+            </section>
+
+        </section>
+    </main>
+</body>
+<script type="module">
+    const ctx = document.getElementById('my_chart');
+    const ctx2 = document.getElementById('my_chart_2');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+</script>
+
+</html>
