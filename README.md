@@ -1,4 +1,6 @@
-# controle_estoque_va
-Sistema de controle de estoque para uma micro empresa
+# ERP FinderBit
 
-- [ ] Controle de estoque 
+- [ ] Registrar Produtos
+- [ ] Tirar Notas de vendas 
+- [ ] Cadastrar Clientes
+- [ ] Controle de financeiro

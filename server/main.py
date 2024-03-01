@@ -1,43 +1,31 @@
-from json import load, dump
-from os.path import join, exists
-from faker import Faker
+import sqlite3
 
 
+querys_sqls = {
+    "crete_table": """CREATE TABLE clientes (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        fone TEXT,
+        bairro TEXT);""",
 
-def readjson(filename:str) -> dict | bool:
-    if exists(filename) == True:
-        with open(filename, "r") as fp:
-            d = load(fp)
-        return d
-    return False
-
-
-def writejson(filename:str,data:dict) ->  bool:
-    if exists(filename) == True:
-        with open(filename, "w") as fp:
-            d = dump(data,fp)
-        return True
-    return False
+}
 
 
-fk = Faker()
-def gerardados():
-    dados = list()
-    for n in range(1000):
-        nome = fk.name()
-        cep = fk.postcode()
-        tel = fk.phone_number()
-        d = dict(nome=nome,cep=cep,tel=tel)
-        dados.append(d.copy())
-        d.clear()
-    return dados
+def receber_dados(*args):
+    return args
 
 
-
-if __name__ == "__main__":
-    ROOT_MODEL = "models"
-    NAME_FILE = "clientes.json"
-    FILE = join(ROOT_MODEL,NAME_FILE)
-    dados = dict(map(lambda v: v, enumerate(gerardados())))
-    # print(dados.\keys())
-    writejson(FILE,dados)
+conn = sqlite3.connect("clientes.db")
+cursor = conn.cursor()
+try:    
+    cursor.execute(querys_sqls["crete_table"])
+    conn.commit()
+    print("Tabela criada")
+    cursor.close()
+    conn.close()
+except:
+    conn.close()
+cursor.executemany("""
+INSERT INTO clientes (nome, idade, cpf, email, fone, cidade, uf, criado_em)
+VALUES (?,?,?,?,?,?,?,?)
+""", )

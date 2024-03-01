@@ -1,30 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title_page }}</title>
-    {% include "bootstrap.html" %}
+    <title>ERP FinderBit</title>
 </head>
-
 <body>
-    <section class="container">
-        <div class="">
-            <img src="#" alt="Logo da Empresa">
-        </div>
-        <form method="post">
-            <div class="mb-3">
-                <label for="iusername" class="form-label">Email address</label>
-                <input type="text" name="useremail" class="form-control" id="iusername">
-            </div>
-            <div class="mb-3">
-                <label for="ipassword" class="form-label">Password</label>
-                <input type="text" name="userpassword"  class="form-control" id="ipassword">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </section>
+    {% include "partials/header.html" %}
 </body>
-
 </html>
