@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request,redirect,url_for
-from main import receber_dados
+# from main import receber_dados
 
 bp_cadastro = Blueprint("cadastro", __name__, url_prefix="/cadastro")
 
@@ -24,7 +24,8 @@ def cadastrar_pessoa():
         # rua = request.form["rua"]
         # cidade = request.form["cidade"]
         tel = request.form["tel"]
-        receber_dados(cliente,bairro,tel)
+        print(tel)
+        # receber_dados(cliente,bairro,tel)
         
         return render_template("cadastro_pessoa.html")
     elif request.method == "GET":

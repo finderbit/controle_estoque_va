@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, jsonify,redirect
-from bps.login import bp_login
-from bps.cadastro import bp_cadastro
+from server.login.login import bp_login
+from cadastro.cadastro import bp_cadastro
 
 
 app = Flask(__name__)
