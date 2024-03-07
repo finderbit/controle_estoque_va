@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request,redirect,url_for
 # from main import receber_dados
 
-bp_cadastro = Blueprint("cadastro", __name__, url_prefix="/cadastro")
+bp_cadastro = Blueprint("cadastro_cliente", __name__)
 
 
 """ 
@@ -16,8 +16,8 @@ tel == telefone
 """
 
 
-@bp_cadastro.route("/cliente", methods=["POST", "GET"])
-def cadastrar_pessoa():
+@bp_cadastro.route("/cadastro", methods=["POST", "GET"])
+def cadastro():
     if request.method == "POST":
         cliente = request.form["cliente"]
         bairro = request.form["bairro"]
