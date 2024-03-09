@@ -1,100 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERP FinderBit</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body,
-        html {
-            background-color: rgb(104, 199, 255);
-
-        }
-
-        body {}
-
-        main {
-            margin: 10% auto;
-            width: 90vw;
-            height: 90vh;
-            display: grid;
-            grid-area: span;
-            padding: 32px;
-        }
-
-        main {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            padding: 20px;
-            gap: 15%;
-        }
-
-        .item-menu {
-            width: 100%;
-
-            text-align: center;
-        }
-
-        .item-menu img {
-            display: block;
-            margin: 0 auto;
-            width: 50%;
-
-        }
-
-        .item-menu>p {
-            margin-top: 16px;
-
-        }
-
-        .item-menu img:hover {
-            padding: 10px;
-            border-radius: 50%;
-            background-color: whitesmoke;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
+{% include 'partials/head.html' %}
 <body>
-    <main>
+    {% include 'partials/header.html' %}
+    <section>
 
-        <section class="item-menu">
-            <a href="vendas">
+    </section>
 
-                <img src="../static/imgs/vendas.png" alt="Vendas">
-                <p>Vendas</p>
-            </a>
-        </section>
 
-        <section class="item-menu">
-            <a href="estoque">
-                <img src="../static/imgs/estoque.png" alt="Estoque">
-                <p>Estoque</p>
-            </a>
-        </section>
-
-        <section class="item-menu">
-            <a href="cadastro">
-                <img src="../static/imgs/cadastro.png" alt="Cadastro">
-                <p>Cadastro</p>
-            </a>
-        </section>
-
-        <section class="item-menu">
-            <a href="financeiro">
-                <img src="../static/imgs/financeiro.png" alt="Financeiro">
-                <p>Financeiro</p>
-            </a>
-        </section>
-    </main>
 
 </body>
 

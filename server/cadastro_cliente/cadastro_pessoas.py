@@ -29,4 +29,4 @@ def cadastro():
         
         return render_template("cadastro_pessoa.html")
     elif request.method == "GET":
-        return render_template("cadastro_pessoa.html")
+        return render_template("cadastro_pessoa.html",title_page="Cadastro de Cliente")
