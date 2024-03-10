@@ -2,34 +2,93 @@
 <html lang="pt-br">
 
 {% include 'partials/head.html' %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    section {
+        width: 100%;
+        height: 10vh;
+        border-radius: 6px;
+    }
+
+    .form-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #isearch {
+        width: 75%;
+        height: 12%;
+    }
+
+    .oculto {
+        display: none;
+
+    }
+
+    .ativo {
+        display: block;
+    }
+</style>
+
 <body>
     {% include "partials/header.html" %}
     <main>
-        <form method="post">
-            <div>
-                <label for="inomecliente">Nome Cliente</label>
-                <input type="text" name="cliente" id="inomecliente">
-            </div>
-            <div>
-     <!--            <label for="irua">Rua</label>
-                <input type="text" name="rua" id="irua">
- -->
-                <label for="ibairro">Bairro</label>
-                <input type="text" name="bairro" id="ibairro">
-
-           <!--      <label for="icidade">Cidade</label>
-                <input type="text" name="cidade" id="icidade"> -->
-                
-            </div>
-            <div>
-                <label for="itel">Telefone</label>
-                <input type="tel" name="tel" id="itel">
-            </div>
-            <div>
+        <section>
+            <form method="post" class="form-search">
+                <input type="text" name="search" id="isearch" placeholder="Nome do Cliente">
+                <input type="submit" value="Pesquisar">
+                <input type="button" value="+" onclick="openCadastro()">
+            </form>
+        </section>
+        <section class="cadastro oculto" id="cadastro">
+            <input type="button" onclick="fecharCadastro()" value="X">
+            <form class="form-cadastro" method="post">
+                <div>
+                    <label for="iname">Nome do Cliente:</label>
+                    <input type="text" name="nameclient" id="iname">
+                </div>
+                <div>
+                    <label for="icpf">CPF:</label>
+                    <input type="text" name="cpfclient" id="icpf">
+                </div>
+                <div>
+                    <label for="irua">Rua:</label>
+                    <input type="text" name="rua" id="irua">
+                    <label for="inumero">Número da Casa:</label>
+                    <input type="number" name="numero" id="inumero">
+                    <label for="ibairro">Bairro:</label>
+                    <input type="text" name="bairro" id="ibairro">
+                </div>
                 <input type="submit" value="Cadastrar">
-            </div>
-        </form>
+            </form>
+        </section>
     </main>
 </body>
+<script>
+    const areaCadastro = document.querySelector("#cadastro");
+    function openCadastro() {
+        for (const c of areaCadastro.classList) {
+            if ("oculto" === c) {
+                areaCadastro.classList.add("ativo")
+            }
+            else {
+
+                areaCadastro.classList.add("oculto")
+            }
+        }
+    }
+    function fecharCadastro() {
+        for (const c of areaCadastro.classList) {
+            if ("ativo" === c) {
+                areaCadastro.classList.remove("ativo")
+            }
+        }
+    }  
+</script>
 
 </html>
