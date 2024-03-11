@@ -1,6 +1,5 @@
 # ERP FinderBit
 
-- [ ] Registrar Produtos
-- [ ] Tirar Notas de vendas 
-- [ ] Cadastrar Clientes
-- [ ] Controle de financeiro
+## Cadastro de Clientes
+- [ ] Formulario de cadastro
+- [ ] Envio para o backend
