@@ -1,0 +1,7 @@
+<header>
+    <nav>
+        {% for rota in routes %}
+        <a href="{{url_for(rota)}}">{{rota.upper()}}</a>
+        {% endfor %}
+    </nav>
+</header>
