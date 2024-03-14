@@ -1,19 +1,14 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-# from main import receber_dados
+from json import load
 
 bp_cadastro = Blueprint("cadastro_cliente", __name__)
 
 
-""" 
-cliente == cliente
-rua == rua
-bairro == bairro
-cidade == cidade
-tel == telefone
+def get_dados():
+    with open("models/user.json","r") as fp:
+        dados = load(fp)
+    return dados
 
-
-
-"""
 
 
 @bp_cadastro.route("/cadastro", methods=["POST", "GET"])
@@ -24,8 +19,9 @@ def cadastro():
         rua = request.form["rua"]
         numero = request.form["numero"]
         bairro = request.form["bairro"]
-        # print(nome, cpf, rua, numero, bairro)
-        print(nome)
-        return render_template("cadastro_pessoa.html", title_page="Cadastro de Cliente")
+        
+
+        return render_template("cadastro_pessoa.html", title_page="Cadastro de Cliente",dados=get_dados())
+    
     elif request.method == "GET":
-        return render_template("cadastro_pessoa.html", title_page="Cadastro de Cliente")
+        return render_template("cadastro_pessoa.html", title_page="Cadastro de Cliente",dados=get_dados())
