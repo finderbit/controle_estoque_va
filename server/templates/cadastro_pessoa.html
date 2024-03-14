@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% include "partials/head.html" %}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    section {
+        width: 100%;
+        height: 10vh;
+        border-radius: 6px;
+    }
+
+    .form-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #isearch {
+        width: 75%;
+        height: 12%;
+    }
+
+    .oculto {
+        display: none;
+
+    }
+
+    .ativo {
+        display: block;
+    }
+
+    #table-clientes {
+        width: 100vw;
+        padding: 12px;
+ 
+    }
+
+    td,
+    th {
+        text-align: center;
+        border: 1px solid black;
+        padding: 8px;
+
+    }
+
+    table {
+        margin: 0 auto;
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 90%;
+    }
+</style>
+
+</head>
+
+
+<body>
+    {% include "partials/header.html" %}
+    <main>
+        <section>
+            <form method="post" class="form-search">
+                <input type="text" name="search" id="isearch" placeholder="Nome do Cliente">
+                <input type="submit" value="Pesquisar">
+                <input type="button" value="+" onclick="openCadastro()">
+            </form>
+        </section>
+        <dialog class="cadastro" id="cadastro">
+            <input type="button" onclick="fecharCadastro()" value="X">
+            <form class="form-cadastro" method="post">
+                <div>
+                    <label for="iname">Nome do Cliente:</label>
+                    <input type="text" name="nameclient" id="iname">
+                </div>
+                <div>
+                    <label for="icpf">CPF:</label>
+                    <input type="text" name="cpfclient" id="icpf">
+                </div>
+                <div>
+                    <label for="irua">Rua:</label>
+                    <input type="text" name="rua" id="irua">
+                    <label for="inumero">Número da Casa:</label>
+                    <input type="number" name="numero" id="inumero">
+                    <label for="ibairro">Bairro:</label>
+                    <input type="text" name="bairro" id="ibairro">
+                </div>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </dialog>
+        <section id="table-clientes">
+            <table>
+                <thead>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Tel</th>
+                    <th>Ops.</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>Mateus José da silva</td>
+                        <td>21 778787111</td>
+                        <td><button >Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Mateus José da silva</td>
+                        <td>21 778787111</td>
+                        <td><button >Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Mateus José da silva</td>
+                        <td>21 778787111</td>
+                        <td><button >Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Mateus José da silva</td>
+                        <td>21 778787111</td>
+                        <td><button >Editar</button></td>
+                    </tr>                    <tr>
+                        <td>0</td>
+                        <td>Mateus José da silva</td>
+                        <td>21 778787111</td>
+                        <td><button >Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+<script src="../static/js/modal_cadastro.js"></script>
+
+</html>

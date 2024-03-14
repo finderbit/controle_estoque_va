@@ -1,2 +1,5 @@
-# controle_estoque_va
-Sistema de controle de estoque para uma micro empresa
+# ERP FinderBit
+
+## Cadastro de Clientes
+- [ ] Formulario de cadastro
+- [ ] Envio para o backend
